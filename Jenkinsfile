@@ -37,18 +37,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean install'
             }
         }
         stage('Docker Build') {
             steps {
                 script {
-                    // Build the Docker image and tag it
-                    dockerImage = docker.build('sudhamshapp/yourapp:latest')
+                    sh 'docker build -t sudhamshapp/webapp .'
+                    sh 'docker login -u sudhamshapp -p Buddy$1996'
+                    sh 'docker push sudhamshapp/webapp'
 
-                    // Push the Docker image to Docker Hub
-                    docker.withRegistry('https://hub.docker.com/', 'docker-hub-credentials') {
-                        dockerImage.push()
+
                     }
                 }
             }
