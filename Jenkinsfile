@@ -52,7 +52,14 @@ pipeline {
                 }
             }
         }
+        // Add a stage for deploying the Docker container if necessary
+        // stage('Deploy') {
+        //     steps {
+        //         // Use 'dockerImage' as the image name to deploy
+        //         sh 'docker run -d -p 8080:8080 sudhamshapp/yourapp:latest'
+        //     }
+        // }
     }
-
+}
 
 // this is a sample line added to check the connectivity
