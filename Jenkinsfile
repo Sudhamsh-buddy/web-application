@@ -62,4 +62,3 @@ pipeline {
     }
 }
 
-// this is a sample line added to check the connectivity
