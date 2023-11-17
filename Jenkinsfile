@@ -40,17 +40,17 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Docker Build') {
-            steps {
-                script {
-                    sh 'docker build -t sudhamshapp/webapp .'
-                    sh 'docker login -u sudhamshapp -p Buddy$1996'
-                    sh 'docker push sudhamshapp/webapp'
+        // stage('Docker Build') {
+        //     steps {
+        //         script {
+        //             sh 'docker build -t sudhamshapp/webapp .'
+        //             sh 'docker login -u sudhamshapp -p Buddy$1996'
+        //             sh 'docker push sudhamshapp/webapp'
 
 
-                    }
-                }
-            }
+        //             }
+        //         }
+        // }
         }
         // Add a stage for deploying the Docker container if necessary
         // stage('Deploy') {
@@ -59,6 +59,6 @@ pipeline {
         //         sh 'docker run -d -p 8080:8080 sudhamshapp/yourapp:latest'
         //     }
         // }
-    }
 }
+
 

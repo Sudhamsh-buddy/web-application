@@ -1,9 +1,5 @@
 # Use the openjdk:8 as the base image
 FROM openjdk:8
-
-# Create a directory for your application
-RUN mkdir /app
-
 # Set the working directory to /app
 WORKDIR /app
 
