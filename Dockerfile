@@ -5,7 +5,7 @@ FROM openjdk:8
 WORKDIR /app
 
 # Copy the WAR file into the container
-COPY /var/lib/jenkins/workspace/sample-pipeline/target/'web-application-war-file.war /app/
+COPY /var/lib/jenkins/workspace/sample-pipeline/target/web-application-war-file.war /app/
 
 # Expose the port on which your application will run (adjust as needed)
 EXPOSE 8082
