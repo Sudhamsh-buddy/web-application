@@ -27,6 +27,6 @@
 </distributionManagement>
 
   <build>
-    <finalName>web-application war file</finalName>
+    <finalName>web-application-war-file</finalName>
   </build>
 </project>
