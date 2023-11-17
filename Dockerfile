@@ -5,7 +5,7 @@ FROM openjdk:8
 WORKDIR /app
 
 # Copy the WAR file into the container
-COPY target/web-application-war-file.war /app/
+COPY target/web-application-war-file.war /app/web-application-war-file.war
 
 # Expose the port on which your application will run (adjust as needed)
 EXPOSE 8082
