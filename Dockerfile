@@ -1,14 +1,14 @@
-# Use the openjdk:8 as the base image
-FROM openjdk:8
+# Use an official OpenJDK runtime as a base image
+FROM openjdk:11-jre-slim
 
-# Set the working directory to /app
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the WAR file into the container
-COPY /var/lib/jenkins/.m2/repository/com/techworldwithmurali/web-application/1.0-SNAPSHOT/web-application-1.0-SNAPSHOT.war /app/web-application-war-file.war
+# Copy the war file from the Jenkins workspace into the container at /app
+COPY /var/lib/jenkins/workspace/sample-pipeline/target/web-application-war-file.war /app/
 
-# Expose the port on which your application will run (adjust as needed)
-EXPOSE 8082
+# Expose the port that your application will run on
+EXPOSE 8080
 
-# Specify the command to run your application when the container starts
-ENTRYPOINT ["java", "-jar", "/app/web-application-war-file.war"]
+# Command to run your application
+CMD ["java", "-jar", "web-application-war-file.war"]
