@@ -1,14 +1,14 @@
-# Use an official OpenJDK runtime as a base image
-FROM openjdk:11-jre-slim
+# Use an official Tomcat runtime as a base image
+FROM tomcat:9-jre11-slim
 
-# Set the working directory inside the container
-WORKDIR /app
+# Remove the default webapps in Tomcat
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the war file from the Jenkins workspace into the container at /app
-COPY target/web-application-war-file.war /app/
+# Copy the war file into the webapps directory of Tomcat
+COPY target/web-application-war-file.war /usr/local/tomcat/webapps/ROOT.war
 
-# Expose the port that your application will run on
+# Expose the port that Tomcat will run on
 EXPOSE 8080
 
-# Command to run your application
-CMD ["java", "-jar", "web-application-war-file.war"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]
